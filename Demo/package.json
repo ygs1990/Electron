@@ -1,0 +1,67 @@
+{
+  "name": "world",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "dev": "electron . --debug",
+    "build": "electron-builder",
+    "pack": "electron-builder --dir",
+    "package": "electron-packager ./ app --win --out ./app --arch=x64 --version=0.0.1 --electron-version=1.0.0 --icon=icons/icon.ico"
+  },
+  "build": {  
+    "appId": "com.leon.HelloWorld02",
+    "copyright":"gueson",
+    "productName":"Hello",
+    "directories": {
+      "output": "dist"
+    },
+    "extraFiles": [
+      {
+        "from": "icons/",
+        "to": "",
+        "filter": [
+          "48x48.png"
+        ]
+      }
+    ],
+    "dmg":{  
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]  
+    },  
+    "win": {
+      "icon": "icons/icon.ico"
+    },
+    "mac": {
+      "icon": "icons/icon.icns"
+    },
+    "linux": {
+      "icon": "icons"
+    } 
+  },
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "~1.7.8",
+    "electron-builder": "^19.56.0",
+    "yarn": "^1.3.2"
+  }
+}
